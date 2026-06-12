@@ -1,0 +1,26 @@
+{% extends 'base.html '%}
+{% block start %}
+
+<div class="container">
+    <h1>Update Receipe</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Receipe Name</label>
+        <input type="text" class="form-control" name="receipe_name" value="{{ kitchen.receipe_name }}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Receipe description</label>
+        <textarea class="form-control" name="receipe_description">{{ kitchen.receipe_description }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Receipe Image</label>
+        <input type="file" class="form-control" name="receipe_image">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+{% endblock %}
