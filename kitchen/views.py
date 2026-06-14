@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def kitchen_view(request):
@@ -54,6 +55,24 @@ def update_receipe(request, id):
     return render(request, 'update_receipe.html', context)
     
 def login_page(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        if not User.objects.filter(username = email).exists():
+            messages.error(request, 'Email does not exist')
+            return redirect('/login/')
+
+        user = authenticate(username = email, password = password)
+
+        if user is None:
+            messages.error(request, 'Invalid password')
+            return redirect('/login/')
+
+        else:
+            login(request, user)
+            return redirect('/kitchen/')
+    
     return render(request, 'login.html')
 
 def register_page(request):
@@ -80,3 +99,7 @@ def register_page(request):
         return redirect('/register/')
     
     return render(request, 'register.html')
+
+def logout_page(request):
+    logout(request)
+    return redirect('/login/')
