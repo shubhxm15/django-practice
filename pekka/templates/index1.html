@@ -14,8 +14,9 @@
     </style>
 </head>
 <body>
-    <h1>Django sasti practice</h1>
-    <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum distinctio facere velit ad omnis explicabo dolor, necessitatibus adipisci, numquam a ea magni molestias eos, cum delectus voluptates quidem repudiandae voluptatibus!</p> -->
+    <div class="container">
+        <h1>Django sasti practice</h1>
+        <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum distinctio facere velit ad omnis explicabo dolor, necessitatibus adipisci, numquam a ea magni molestias eos, cum delectus voluptates quidem repudiandae voluptatibus!</p> -->
     <table class='container'>
         <tr>
             <th>sr no</th>
@@ -40,5 +41,12 @@
     </table>
 </body>
 </html>
+</div>
+<br>
+<br>
+<div class="container">
+    <h3>you can send email too</h3>
+    <a href={% url 'send_email' %} class = 'btn btn-success'> send email </a>
+</div>
 
 {% endblock %}

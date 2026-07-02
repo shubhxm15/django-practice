@@ -35,7 +35,8 @@ urlpatterns = [
     path('update_receipe/<id>', update_receipe),
     path('login/', login_page, name='login_page'),
     path('register/', register_page, name='register_page'),
-    path('logout/', logout_page, name='logout_page')
+    path('logout/', logout_page, name='logout_page'),
+    path('send_email/', send_email, name='send_email'),
 ]
 
 if settings.DEBUG:

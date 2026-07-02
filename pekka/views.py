@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from kitchen.uitls import send_email_to_anyone
 
 def home(request):
     return HttpResponse("Hello what's up!!")
@@ -24,3 +25,7 @@ def dataa(request):
 def sample(request):
     
     return render(request, 'sample.html', context = {'page' : 'sample page'})
+
+def send_email(request):
+    send_email_to_anyone()
+    return redirect('/people-data/')
